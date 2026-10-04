@@ -1,0 +1,39 @@
+name: Autograding Tests
+'on':
+- workflow_dispatch
+- repository_dispatch
+- push
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Output
+      id: output
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Output
+        setup-command: g++ main.cpp
+        command: "./a.out"
+        input: ''
+        expected-output: |-
+          Rectangle Properties:
+          Length = 7.2
+          Width = 1.3
+          Area = 9.36
+          Perimeter = 17
+        comparison-method: contains
+        timeout: 10
+        max-score: 10
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        OUTPUT_RESULTS: "${{steps.output.outputs.result}}"
+      with:
+        runners: output

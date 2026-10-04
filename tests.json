@@ -1,0 +1,98 @@
+[
+  {
+    "name": "compiles",
+    "type": "run",
+    "run": "g++ -o a.out main.cpp",
+    "points": 1
+  },
+  {
+    "name": "valid-sedan-base",
+    "type": "io",
+    "setup": "g++ -o a.out main.cpp",
+    "run": "./a.out",
+    "input": "25000\nSedan\nWhite\n4-cylinder",
+    "expected": "Total cost: $18000\nIn budget",
+    "comparison": "included",
+    "points": 3
+  },
+  {
+    "name": "valid-suv-upgrade",
+    "type": "io",
+    "setup": "g++ -o a.out main.cpp",
+    "run": "./a.out",
+    "input": "60000\nSUV\nBlue\nV6",
+    "expected": "Total cost: $31250\nIn budget",
+    "comparison": "included",
+    "points": 3
+  },
+  {
+    "name": "valid-truck-basic",
+    "type": "io",
+    "setup": "g++ -o a.out main.cpp",
+    "run": "./a.out",
+    "input": "40000\nTruck\nBlack\nV6",
+    "expected": "Total cost: $35000\nIn budget",
+    "comparison": "included",
+    "points": 3
+  },
+  {
+    "name": "out-of-budget",
+    "type": "io",
+    "setup": "g++ -o a.out main.cpp",
+    "run": "./a.out",
+    "input": "15000\nSUV\nBlack\nV6",
+    "expected": "Total cost: $31000\nNot in budget",
+    "comparison": "included",
+    "points": 2
+  },
+  {
+    "name": "invalid-color",
+    "type": "io",
+    "setup": "g++ -o a.out main.cpp",
+    "run": "./a.out",
+    "input": "50000\nSedan\nPurple\n4-cylinder",
+    "expected": "The configuration is invalid.",
+    "comparison": "included",
+    "points": 2
+  },
+  {
+    "name": "invalid-car-type",
+    "type": "io",
+    "setup": "g++ -o a.out main.cpp",
+    "run": "./a.out",
+    "input": "50000\nSedan\nWhite\nElectric",
+    "expected": "The configuration is invalid.",
+    "comparison": "included",
+    "points": 2
+  },
+  {
+    "name": "invalid-engine",
+    "type": "io",
+    "setup": "g++ -o a.out main.cpp",
+    "run": "./a.out",
+    "input": "50000\nSedan\nWhite\nHybrid",
+    "expected": "The configuration is invalid.",
+    "comparison": "included",
+    "points": 2
+  },
+  {
+    "name": "truck-with-v8",
+    "type": "io",
+    "setup": "g++ -o a.out main.cpp",
+    "run": "./a.out",
+    "input": "50000\nTruck\nWhite\nV8",
+    "expected": "The configuration is invalid.",
+    "comparison": "included",
+    "points": 2
+  },
+  {
+    "name": "truck-with-red",
+    "type": "io",
+    "setup": "g++ -o a.out main.cpp",
+    "run": "./a.out",
+    "input": "50000\nTruck\nRed\n4-cylinder",
+    "expected": "The configuration is invalid.",
+    "comparison": "included",
+    "points": 2
+  }
+]

@@ -1,0 +1,11 @@
+a.out
+*.o
+*.exe
+*.dll
+*.so
+*.dylib
+*.class
+*.jar
+*.class
+*.log
+*.tmp
