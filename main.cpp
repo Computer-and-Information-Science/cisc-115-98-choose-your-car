@@ -1,3 +1,14 @@
+// Choose Your Car
+// CISC 115-98 — In-Class Assignment
+// Your starter code goes here.
+// Write a program that:
+//   1. Asks the user for their budget (integer)
+//   2. Lets them choose a car type (Sedan/SUV/Truck)
+//   3. Lets them choose a color (White/Black/Blue/Red)
+//   4. Lets them choose an engine (4-cylinder/V6/V8)
+//   5. Validates inputs and invalid combinations
+//   6. Outputs total cost and whether it fits in budget
+
 #include <iostream>
 #include <string>
 #include <iomanip>
@@ -5,68 +16,18 @@
 using namespace std;
 
 int main() {
-    int budget;
-    string carType, color, engine;
+    // YOUR CODE HERE
+    // Start by declaring variables for budget, carType, color, and engine
     
-    cout << "Enter your budget: ";
-    cin >> budget;
+    // Prompt the user and read input for each option
     
-    cout << "Choose car type (Sedan/SUV/Truck): ";
-    cin >> carType;
+    // Validate that each input matches an allowed value
     
-    cout << "Choose color (White/Black/Blue/Red): ";
-    cin >> color;
+    // Check for invalid combinations (Truck+V8, Truck+Red)
     
-    cout << "Choose engine (4-cylinder/V6/V8): ";
-    cin >> engine;
+    // Calculate the total cost
     
-    // Check for invalid inputs first
-    bool validCarType = (carType == "Sedan" || carType == "SUV" || carType == "Truck");
-    bool validColor = (color == "White" || color == "Black" || color == "Blue" || color == "Red");
-    bool validEngine = (engine == "4-cylinder" || engine == "V6" || engine == "V8");
-    
-    if (!validCarType || !validColor || !validEngine) {
-        cout << "The configuration is invalid." << endl;
-        return 0;
-    }
-    
-    // Check for invalid combinations
-    // Truck cannot have V8
-    if (carType == "Truck" && engine == "V8") {
-        cout << "The configuration is invalid." << endl;
-        return 0;
-    }
-    
-    // Red only available for Sedan and SUV
-    if (color == "Red" && carType == "Truck") {
-        cout << "The configuration is invalid." << endl;
-        return 0;
-    }
-    
-    // Calculate costs
-    int carCost = 0;
-    if (carType == "Sedan") carCost = 18000;
-    else if (carType == "SUV") carCost = 28000;
-    else if (carType == "Truck") carCost = 32000;
-    
-    int colorCost = 0;
-    if (color == "Black") colorCost = 500;
-    else if (color == "Blue") colorCost = 750;
-    else if (color == "Red") colorCost = 1000;
-    
-    int engineCost = 0;
-    if (engine == "V6") engineCost = 2500;
-    else if (engine == "V8") engineCost = 5000;
-    
-    int totalCost = carCost + colorCost + engineCost;
-    
-    cout << "Total cost: $" << totalCost << endl;
-    
-    if (totalCost <= budget) {
-        cout << "In budget" << endl;
-    } else {
-        cout << "Not in budget" << endl;
-    }
+    // Output the total cost and whether it is in budget
     
     return 0;
 }
